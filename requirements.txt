@@ -1,0 +1,21 @@
+# Requiere Python 3.9 o superior (probado hasta 3.13).
+# Usamos ">=" en vez de "==" a propósito: así pip instala la versión más
+# reciente compatible con TU intérprete de Python, en vez de exigir una
+# versión exacta que podría no tener wheels para tu versión instalada.
+# El código en sí (gracias a "from __future__ import annotations" en cada
+# archivo) funciona incluso en Python 3.8+, aunque recomendamos 3.9+ porque
+# es el mínimo que piden varias de estas librerías.
+
+fastapi>=0.110
+uvicorn[standard]>=0.29
+asyncpg>=0.29
+pydantic[email]>=2.7
+bcrypt>=4.1
+python-dotenv>=1.0
+python-multipart>=0.0.9
+
+# IA gratuita (chat de orientación) — ver app/ai_engine.py
+groq>=0.9
+
+# Lectura de PDFs para el simulador de convalidación — ver app/routers/simulador.py
+pdfplumber>=0.10
