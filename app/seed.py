@@ -30,11 +30,14 @@ ESPECIALISTAS_BASE = [
 ]
 
 FOROS_BASE = [
-    ("general", "General", "💬", "#0059FF"),
-    ("admision", "Admisión y postulación", "📝", "#7C3AED"),
-    ("traslados", "Traslados y convalidación", "🔄", "#16A34A"),
-    ("becas", "Becas y financiamiento", "🎓", "#D97706"),
-    ("vida-universitaria", "Vida universitaria", "🏫", "#0891B2"),
+    ("general", "General", "💬", "#6B7280"),
+    ("traslados", "Traslados", "🔄", "#7C3AED"),
+    ("becas", "Becas", "🎓", "#16A34A"),
+    ("ingenieria", "Ingeniería y Tech", "⚙️", "#0059FF"),
+    ("salud", "Salud y Medicina", "🏥", "#EF4444"),
+    ("negocios", "Negocios", "💼", "#D97706"),
+    ("padres", "Padres de Familia", "👨‍👩‍👧", "#16A34A"),
+    ("reportes", "Reportes de Datos", "🚩", "#DC2626"),
 ]
 
 

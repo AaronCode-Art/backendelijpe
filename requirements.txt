@@ -19,3 +19,7 @@ groq>=0.9
 
 # Lectura de PDFs para el simulador de convalidación — ver app/routers/simulador.py
 pdfplumber>=0.10
+
+# Machine Learning real del test vocacional (Random Forest) — ver ml/model.py
+scikit-learn>=1.4
+numpy>=1.26

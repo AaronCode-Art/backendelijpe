@@ -5,6 +5,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from app.database import get_pool
+from ml.model import get_modelo
 
 router = APIRouter(prefix="/api/test", tags=["test"])
 
@@ -13,6 +14,29 @@ class ResultadoIn(BaseModel):
     usuario_id: str
     respuestas: dict
     carreras: list
+
+
+class RespuestasIn(BaseModel):
+    respuestas: dict[str, list[str]]  # { "1": ["prog"], "4": ["math","chem"], ... }
+
+
+@router.post("/predecir-ml")
+async def predecir_ml(body: RespuestasIn):
+    """Predicción real de Machine Learning (Random Forest de scikit-learn,
+    ver ml/model.py) sobre las respuestas del test vocacional. Devuelve los
+    clusters de carrera ordenados por probabilidad aprendida por el modelo,
+    no por una simple suma de pesos."""
+    modelo = get_modelo()
+    selections = {int(k): v for k, v in body.respuestas.items()}
+    ranking = modelo.predecir(selections)
+    return {
+        "ranking": ranking,
+        "modelo": {
+            "tipo": "RandomForestClassifier (scikit-learn)",
+            "muestras_entrenamiento": modelo.n_samples,
+            "accuracy_test": round(modelo.test_accuracy, 3),
+        },
+    }
 
 
 @router.post("/resultado")
