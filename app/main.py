@@ -10,7 +10,7 @@ from app.routers import auth, universidades, ia, pagos, especialistas, foros, si
 # Dominios permitidos para llamar a esta API. En Render se configura con la
 # variable de entorno FRONTEND_URL (ver .env.example). Si no está definida,
 # se cae en localhost para desarrollo local.
-_frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
+_frontend_url = os.getenv("FRONTEND_URL", "https://frontelijepe.onrender.com")
 ALLOWED_ORIGINS = [origin.strip() for origin in _frontend_url.split(",") if origin.strip()]
 
 
