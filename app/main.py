@@ -49,3 +49,16 @@ app.include_router(test_resultados.router)
 @app.get("/")
 async def root():
     return {"status": "ok", "service": "ElijePe API"}
+
+
+
+@app.exception_handler(Exception)
+async def debug_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={
+            "error": str(exc),
+            "type": type(exc).__name__,
+            "traceback": traceback.format_exc(),
+        },
+    )
